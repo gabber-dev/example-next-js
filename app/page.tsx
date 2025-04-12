@@ -2,7 +2,7 @@
 import { RealtimeSessionEngineProvider, useRealtimeSessionEngine } from "gabber-client-react";
 import { startSession } from "./actions";
 import { RealtimeSessionConnectionDetails } from "gabber-client-core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [connectionDetails, setConnectionDetails] = useState<RealtimeSessionConnectionDetails | undefined>(undefined);
@@ -10,7 +10,7 @@ export default function Home() {
   if (!connectionDetails) {
     return (
       <div className="">
-        <button onClick={async () => {
+        <button className="btn" onClick={async () => {
           const conDetails = await startSession()
           setConnectionDetails(conDetails)
         }}>Start</button>
