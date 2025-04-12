@@ -9,11 +9,11 @@ export default function Home() {
 
   if (!connectionDetails) {
     return (
-      <div className="">
-        <button className="btn" onClick={async () => {
+      <div className="w-screen h-screen flex items-center justify-center bg-gray-50">
+        <button className="p-2 bg-blue-400 rounded font-bold" onClick={async () => {
           const conDetails = await startSession()
           setConnectionDetails(conDetails)
-        }}>Start</button>
+        }}>Start Session</button>
       </div>
     );
   }
