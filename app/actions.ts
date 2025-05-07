@@ -17,6 +17,8 @@ export async function startSession() {
 
     const contextRes = await axios.post("https://api.gabber.dev/v1/llm/context", contextBody, { headers: { "x-api-key": process.env.GABBER_API_KEY } });
 
+    console.log("Context response", contextRes.data)
+
     const startBody = {
         "config": {
             "general": {
@@ -29,7 +31,7 @@ export async function startSession() {
             "generative": {
                 "llm": GABBER_LLM,
                 "voice_override": GABBER_VOICE,
-                "context": contextRes.data.context_id,
+                "context": contextRes.data.id,
             },
             "output": {
                 "stream_transcript": true,
